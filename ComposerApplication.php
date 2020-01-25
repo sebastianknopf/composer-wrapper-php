@@ -21,7 +21,7 @@ class ComposerApplication extends Application
 	 *
      * @return \Composer\Composer|null Composer instance running in this app
      */
-    public function getComposer()
+    public function getComposer($required = true, $disablePlugins = NULL)
     {
         return $this->composer;
     }
