@@ -40,6 +40,8 @@ class Composer
         self::$configFile = $configFile;
         self::$configFilePath = $configFilePath;
 
+        chdir(self::$configFilePath);
+
         if (self::$_instance === null)
         {
             self::$_instance = new self();
@@ -127,6 +129,16 @@ class Composer
 	{
 		$this->executeCommand('remove', $options);
 	}
+
+	/*
+	 * Common dump autoload method.
+	 *
+	 * @param array $options Command line options
+	 */
+	public function dumpAutoload($options = [])
+    {
+        $this->executeCommand('dump-autoload', $options);
+    }
 	
 	/*
 	 * Common list method.
